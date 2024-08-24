@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/services', [PageController::class, 'services']);
+Route::get('/services/create', [PageController::class, 'create']);
+Route::post
+
+Route::get('/faq', [PageController::class, 'faq']);
+
+Route::get('/portofolio', [PageController::class, 'portofolio']);
+
+Route::get('/blog', [PageController::class, 'blog']);
+
+Route::get('/contact', [PageController::class, 'contact']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
