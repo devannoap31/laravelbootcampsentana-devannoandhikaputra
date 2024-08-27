@@ -13,24 +13,25 @@
                      <th>No</th>
                      <th>Name</th>
                      <th>Price</th>
+                     <th>Action</th>
                   </tr>
                </thead>
                <tbody>
+                  @foreach ($services as $key=>$item )
                   <tr>
-                     <td>1</td>
-                     <td>Laravel</td>
-                     <td>Rp. 100.000</td>
+                     <td>{{ $key+1 }}</td>
+                     <td>{{ $item->name }}</td>
+                     <td>{{ $item->price }}</td>
+                     <td>
+                        <a href="/services/{{ $item->id }}/edit" class="btn btn-warning">Edit</a>
+                        <form action="/services/{{ $item->id }}" method="post" class="d-inline">
+                           @method('delete')
+                           @csrf
+                           <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                     </td>
                   </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Vue</td>
-                     <td>Rp. 50.000</td>
-                  </tr>
-                  <tr>
-                     <td>3</td>
-                     <td>React</td>
-                     <td>Rp. 75.000</td>
-                  </tr>
+                  @endforeach
                </tbody>
             </table>
          </div>

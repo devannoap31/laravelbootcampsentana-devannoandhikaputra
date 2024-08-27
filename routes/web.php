@@ -20,15 +20,19 @@ Route::get('/', function () {
 });
 
 Route::get('/services', [PageController::class, 'services']);
-Route::get('/services/create', [PageController::class, 'create']);
-Route::post
+
+Route::get('/services/create', [PageController::class, 'servicesCreate']);
+Route::post('/services', [PageController::class, 'servicesDoCreate']);
+
+Route::get('/services/{id}/edit', [PageController::class, 'servicesEdit']);
+Route::put('/services/{id}', [PageController::class, 'servicesDoEdit']);
+
+// Route::get('/services/{id}/delete', [PageController::class, 'servicesDoDelete']);
+Route::delete('/services/{id}', [PageController::class, 'servicesDoDelete']);
 
 Route::get('/faq', [PageController::class, 'faq']);
-
 Route::get('/portofolio', [PageController::class, 'portofolio']);
-
 Route::get('/blog', [PageController::class, 'blog']);
-
 Route::get('/contact', [PageController::class, 'contact']);
 
 Route::get('/dashboard', function () {
